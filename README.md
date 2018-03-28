@@ -1,16 +1,37 @@
+
 # Lexical Analyzer for C-Minus
+Lexical analyzer for C Minus (C-) lang using **flex** (**lex**).
 
-Lexical analyzer for C Minus (C-) lang using Lex.
+## Observações
 
----- 
+Não sei se vamos usar os arquivos main.c, utils.c, scan.c, utils.h, scan.h, globals.h.
 
-Instruções:
+## Instructions
 
-make all
-make run
+### Prerequisites  
+* gcc
+* flex
 
-----
+To install `flex` run the following command inside a terminal (on Ubuntu 16.04):
+```
+$ sudo apt-get install flex
+```
+### Compilation and execution
+Open a terminal inside the project folder and run the commands bellow:
 
-Observações:
+* To compile:
+  ```
+  $ make all
+  ```
+* To run:
+  ```
+  $ make run
+  ```
+## Authors
 
-- Não sei se vamos usar os arquivos main.c, utils.c, scan.c, utils.h, scan.h, globals.h.
+- Bernardo
+- Giovani Ortolani Barbosa - [@giovaniortolani](https://github.com/giovaniortolani) - <giovaniortolanibarbosa@gmail.com>
+- Renan Rodrigues
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
