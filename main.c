@@ -1,52 +1,82 @@
 /****************************************************/
-/* File: main.c                                     */
-/* Main program for TINY compiler                   */
-/* Compiler Construction: Principles and Practice   */
-/* Kenneth C. Louden                                */
+/* Trabalho 1 - Ling. de Prog. e Compiladores       */
+/* Analisador léxico da linguagem C- (C-Minus)      */
+/* Bernardo XXXXXXXXXXXXX                           */
+/* Giovani Ortolani Barbosa     8936648             */
+/* Renan  XXXXXXXXXXXXX                             */
+/*                     Turma 2                      */
 /****************************************************/
 
 #include "globals.h"
-#include "scan.h"
 
-/* allocate global variables */
-int lineno = 0;
-FILE * source;
-FILE * listing;
-FILE * code;
-
-/* allocate and set tracing flags */
-int EchoSource = TRUE;
-int TraceScan = TRUE;
-int TraceParse = FALSE;
-int TraceAnalyze = FALSE;
-int TraceCode = FALSE;
-
-int Error = FALSE;
+int errors = 0;
 
 int main(int argc, char **argv)
 { 
-    char pgm[120]; /* source code file name */
+    char sourceFileName[50]; 
+    char outputFileName[] = "relatorio.txt"; 
+    //char tmpFileName[] = "tmp.txt"; 
+    FILE *source; 
+    FILE *output;
+    //FILE *tmp;
+
     if(argc != 2)
     { 
         fprintf(stderr, "usage: %s <filename>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
-    strcpy(pgm, argv[1]) ;
-    if(strchr(pgm, '.') == NULL)
-    strcat(pgm, ".c-");
-    source = fopen(pgm, "r");
+    
+    /******  VERIFICACAO, ABERTURA DO CODIGO-FONTE   ******/
+    strcpy(sourceFileName, argv[1]) ;
+    source = fopen(sourceFileName, "r");
     if(source == NULL)
     { 
-        fprintf(stderr, "File %s not found\n", pgm);
-        exit(1);
+        fprintf(stderr, "File %s not found\n", sourceFileName);
+        exit(EXIT_FAILURE);
     }
-    listing = stdout; /* send listing to screen */
-    fprintf(listing, "\nC- COMPILATION: %s\n", pgm);
+    //yyin = source;
+    /******************************************************/
 
-    while(getToken() != ENDFILE);
+    // /******  VERIFICACAO, ABERTURA DO RELATORIO TEMPORARIO  ******/
+    // tmp = fopen(tmpFileName, "w+");
+    // if(tmp == NULL)
+    // {
+    //     fprintf(stderr, "Could not open %s file\n", tmpFileName);
+    //     exit(EXIT_FAILURE);
+    // }
+    // //yyout = tmp;
+    // //yyout = stdout;
+    // /************************************************************/
+    
+    //fprintf(stdout, "\nC- COMPILATION: %s\n", sourceFileName);
+
+    /******  VERIFICACAO, ABERTURA DO RELATORIO DE SAIDA  ******/
+    output = fopen(outputFileName, "w");
+    if(output == NULL)
+    {
+        fprintf(stderr, "Could not open %s file\n", outputFileName);
+        exit(EXIT_FAILURE);
+    }
+    //yyout = output;
+    /************************************************************/
+
+    lexicalAnalyzer(source, output);
+
+    fprintf(output, "%d erros(s) encontrados(s)\n", errors);
+
+    // Copia do tmp.txt para o relatorio.txt
+    // rewind(tmp);
+    // c = fgetc(tmp);
+    // while(c != EOF)
+    // {
+    //     fputc(c, output);
+    //     c = fgetc(tmp);
+    // }
 
     fclose(source);
-
+    //fclose(tmp);
+    fclose(output);
+    
     return 0;
 }
 

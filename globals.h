@@ -1,9 +1,10 @@
 /****************************************************/
-/* File: globals.h                                  */
-/* Global types and vars for TINY compiler          */
-/* must come before other include files             */
-/* Compiler Construction: Principles and Practice   */
-/* Kenneth C. Louden                                */
+/* Trabalho 1 - Ling. de Prog. e Compiladores       */
+/* Analisador léxico da linguagem C- (C-Minus)      */
+/* Bernardo XXXXXXXXXXXXX                           */
+/* Giovani Ortolani Barbosa     8936648             */
+/* Renan  XXXXXXXXXXXXX                             */
+/*                     Turma 2                      */
 /****************************************************/
 
 #ifndef _GLOBALS_H_
@@ -22,59 +23,18 @@
 #define TRUE 1
 #endif
 
-/* MAXRESERVED = the number of reserved words */
-#define MAXRESERVED 8
-
-typedef enum 
-    /* book-keeping tokens */
-   {ENDFILE, ERROR,
-    /* reserved words */
-    IF, ELSE, INT, RETURN, VOID, WHILE, INPUT, OUTPUT,
-    /* multicharacter tokens */
-    ID, NUM,
-    /* special symbols */
-    SOMA, SUB, MUL, DIV, MENOR, MEIGUAL, MAIOR, MAIGUAL, IGUAL, DIF,
-    ATRIB, PV, V, AP, FP, ACO, FCO, ACH, FCH
-   } TokenType;
-
-extern FILE* source; /* source code text file */
-extern FILE* listing; /* listing output text file */
-extern FILE* code; /* code text file for TM simulator */
-
-extern int lineno; /* source line number for listing */
-
-/**************************************************/
-/***********   Flags for tracing       ************/
-/**************************************************/
-
-/* EchoSource = TRUE causes the source program to
- * be echoed to the listing file with line numbers
- * during parsing
+/*
+ *  Variavel global para contagem
+ *  de erros
  */
-extern int EchoSource;
+extern int errors;
 
-/* TraceScan = TRUE causes token information to be
- * printed to the listing file as each token is
- * recognized by the scanner
+/*
+ *  Analise lexica atraves do lex
+ *  @params 
+ *      1. arquivo do codigo-fonte .c-
+ *      2. arquivo do relatorio da analise
  */
-extern int TraceScan;
+void lexicalAnalyzer(FILE *, FILE *);
 
-/* TraceParse = TRUE causes the syntax tree to be
- * printed to the listing file in linearized form
- * (using indents for children)
- */
-extern int TraceParse;
-
-/* TraceAnalyze = TRUE causes symbol table inserts
- * and lookups to be reported to the listing file
- */
-extern int TraceAnalyze;
-
-/* TraceCode = TRUE causes comments to be written
- * to the TM code file as code is generated
- */
-extern int TraceCode;
-
-/* Error = TRUE prevents further passes if an error occurs */
-extern int Error; 
 #endif

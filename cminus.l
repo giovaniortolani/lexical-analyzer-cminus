@@ -8,24 +8,8 @@
 /****************************************************/
 
 %{
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
 
-/* provavelmente nao iremos usar isso aqui */
 #include "globals.h"
-#include "util.h"
-#include "scan.h"
-
-/* lexeme of indentifier or reserved word */
-#define MAXTOKENLEN 40
-char tokenString[MAXTOKENLEN+1];
-
-FILE *source;
-FILE *output;
-
-int erros = 0;
 
 %}
 
@@ -75,75 +59,14 @@ espacobranco    [ \n\t]+
                                 ok = TRUE;
                         } while(!ok);
                     }
-.                   { fprintf(yyout, "%s ERRO\n", yytext); erros++;}
+.                   { fprintf(yyout, "%s ERRO\n", yytext); errors++;}
 
 %%
 
-int main(int argc, char **argv) {
-    
-    char sourceFileName[120]; /* source code file name */
-    char outputFileName[] = "relatorio.txt"; 
-    char tmpFileName[] = "tmp.txt"; 
-    FILE *tmp;
-    char c;
-
-    if(argc != 2)
-    { 
-        fprintf(stderr, "usage: %s <filename>\n", argv[0]);
-        exit(EXIT_FAILURE);
-    }
-    
-    /******  VERIFICACAO, ABERTURA DO CODIGO-FONTE   ******/
-    strcpy(sourceFileName, argv[1]) ;
-    if(strchr(sourceFileName, '.') == NULL)
-    {
-        strcat(sourceFileName, ".c-");
-    }
-    source = fopen(sourceFileName, "r");
-    if(source == NULL)
-    { 
-        fprintf(stderr, "File %s not found\n", sourceFileName);
-        exit(EXIT_FAILURE);
-    }
+void lexicalAnalyzer(FILE *source, FILE *output) 
+{
     yyin = source;
-        /******************************************************/
-
-    /******  VERIFICACAO, ABERTURA DO RELATORIO TEMPORARIO  ******/
-    tmp = fopen(tmpFileName, "w+");
-    if(tmp == NULL)
-    {
-        fprintf(stderr, "Could not open %s file\n", tmpFileName);
-        exit(EXIT_FAILURE);
-    }
-    yyout = tmp;
-    //yyout = stdout;
-    /************************************************************/
-    
-    //fprintf(stdout, "\nC- COMPILATION: %s\n", sourceFileName);
-
-    yylex();
-
-    output = fopen(outputFileName, "w");
-    if(output == NULL)
-    {
-        fprintf(stderr, "Could not open %s file\n", outputFileName);
-        exit(EXIT_FAILURE);
-    }
     yyout = output;
-    fprintf(yyout, "%d erros(s) encontrados(s)\n", erros);
-    // Copia do tmp.txt para o relatorio.txt
-    rewind(tmp);
-    c = fgetc(tmp);
-    while(c != EOF)
-    {
-        fputc(c, output);
-        c = fgetc(tmp);
-    }
-
-    fclose(source);
-    fclose(tmp);
-    fclose(output);
-    
-    return 0;
+    yylex();
 }
 
