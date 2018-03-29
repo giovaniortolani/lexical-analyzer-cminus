@@ -1,3 +1,5 @@
-lex.yy.c
-#*.h
-relatorio.txt
+*.c
+*.h
+
+!main.c
+!globals.h
