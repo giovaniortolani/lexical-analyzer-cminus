@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 
     if(argc != 2)
     { 
-        fprintf(stderr, "usage: %s <filename>\n", argv[0]);
+        fprintf(stderr, "usage: %s <filename>.c-\n", argv[0]);
         exit(EXIT_FAILURE);
     }
     

@@ -2,10 +2,6 @@
 # Lexical Analyzer for C-Minus
 Lexical analyzer for C Minus (C-) lang using **flex** (**lex**).
 
-## Observações
-
-Não sei se vamos usar os arquivos main.c, utils.c, scan.c, utils.h, scan.h, globals.h.
-
 ## Instructions
 
 ### Prerequisites  
@@ -32,12 +28,12 @@ Open a terminal inside the project folder and run the commands bellow:
   $ ./gcc- <sourcecode.c->
   ```
   The lexical analysis will be on `relatorio.txt`.
+  
 ## Authors
 
 - Bernardo Simões Lage Gomes Duarte - 
 - Giovani Ortolani Barbosa - [@giovaniortolani](https://github.com/giovaniortolani)
 - Renan Rodrigues -
-
 
 
 ## License
