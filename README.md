@@ -25,13 +25,20 @@ Open a terminal inside the project folder and run the commands bellow:
   ```
 * To run:
   ```
-  $ make run
+  $ make run <sourcecode.c->
   ```
+  or
+  ```
+  $ ./gcc- <sourcecode.c->
+  ```
+  The lexical analysis will be on `relatorio.txt`.
 ## Authors
 
-- Bernardo
-- Giovani Ortolani Barbosa - [@giovaniortolani](https://github.com/giovaniortolani) - <giovaniortolanibarbosa@gmail.com>
-- Renan Rodrigues
+- Bernardo Simões Lage Gomes Duarte - 
+- Giovani Ortolani Barbosa - [@giovaniortolani](https://github.com/giovaniortolani)
+- Renan Rodrigues -
+
+
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.

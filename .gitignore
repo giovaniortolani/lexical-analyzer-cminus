@@ -1,3 +1,6 @@
-lex.yy.c
-#*.h
-relatorio.txt
+gcc-
+src/lex.yy.c
+relatorios/*
+
+!relatorios/.gitkeep
+
