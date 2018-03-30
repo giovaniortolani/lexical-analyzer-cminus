@@ -1,6 +1,7 @@
 /****************************************************/
 /* Trabalho 1 - Ling. de Prog. e Compiladores       */
 /* Analisador léxico da linguagem C- (C-Minus)      */
+/*                                                  */
 /* Bernardo Simões Lage Gomes Duarte    8598861     */
 /* Giovani Ortolani Barbosa             8936648     */
 /* Renan Rodrigues                      9278132     */
