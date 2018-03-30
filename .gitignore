@@ -1,6 +1,6 @@
-*.c
-*.h
 gcc-
+src/lex.yy.c
+relatorios/*
 
-!main.c
-!globals.h
+!relatorios/.gitkeep
+

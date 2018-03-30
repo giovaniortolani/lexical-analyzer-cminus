@@ -32,8 +32,8 @@ extern int errors;
 /*
  *  Analise lexica atraves do lex
  *  @params 
- *      1. arquivo do codigo-fonte .c-
- *      2. arquivo do relatorio da analise
+ *      1. arquivo de entrada com o codigo-fonte .c-
+ *      2. arquivo de destino do relatorio da analise
  */
 void lexicalAnalyzer(FILE *, FILE *);
 
