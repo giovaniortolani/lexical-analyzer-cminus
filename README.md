@@ -27,7 +27,7 @@ Open a terminal inside the project folder and run the commands bellow:
   ```
   $ ./gcc- <sourcecode.c->
   ```
-  The lexical analysis will be on `relatorio.txt`.
+  The lexical analysis will be on `relatorio/relatorio.txt`.
   
 ## Authors
 
