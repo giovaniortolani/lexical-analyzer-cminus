@@ -32,6 +32,7 @@ Open a terminal inside the project folder and run the commands bellow:
 ## Authors
 
 - Bernardo Simões Lage Gomes Duarte - 
+- Gabriel Luiz Ferraz Souto - 
 - Giovani Ortolani Barbosa - [@giovaniortolani](https://github.com/giovaniortolani)
 - Renan Rodrigues -
 

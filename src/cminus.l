@@ -1,12 +1,11 @@
-/****************************************************/
-/* Trabalho 1 - Ling. de Prog. e Compiladores       */
-/* Analisador léxico da linguagem C- (C-Minus)      */
-/*                                                  */
-/* Bernardo Simões Lage Gomes Duarte    8598861     */
-/* Giovani Ortolani Barbosa             8936648     */
-/* Renan Rodrigues                      9278132     */
-/*                     Turma 2                      */
-/****************************************************/
+/********************************************************/
+/* Trabalho 1 - Ling. de Prog. e Compiladores           */
+/* Analisador léxico da linguagem C- (C-Minus)          */
+/* Bernardo Simões Lage Gomes Duarte    8598861 Turma 2 */
+/* Gabriel Luiz Ferraz Souto            8936993 Turma 1 */
+/* Giovani Ortolani Barbosa             8936648 Turma 2 */
+/* Renan Rodrigues                      9278132 Turma 2 */
+/********************************************************/
 
 %{
 
