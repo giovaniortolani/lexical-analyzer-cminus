@@ -9,5 +9,5 @@ clean:
 	rm -rf src/lex.yy.c
 
 run:
-	./gcc- ${SOURCE}    # trocar pelo arquivo que quiser 
-	#@rm -rf tmp.txt
+	@./gcc- ${SOURCE}    # trocar pelo arquivo que quiser 
+	@#rm -rf tmp.txt

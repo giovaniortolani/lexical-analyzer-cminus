@@ -21,7 +21,7 @@ Open a terminal inside the project folder and run the commands bellow:
   ```
 * To run:
   ```
-  $ make run <sourcecode.c->
+  $ make run SOURCE=<sourcecode.c->
   ```
   or
   ```
